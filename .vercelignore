@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.agents
+.data
+.env.local
+.env.development.local
+.env.production.local
+.env
+.impeccable/review
+test-results
+playwright-report
+*.tsbuildinfo

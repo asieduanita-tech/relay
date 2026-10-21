@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T15:26:43.474901+00:00",
+  "title": "Design System: Relay",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "tonalRamp": [
+          "oklch(15% 0.008 150)",
+          "oklch(27% 0.008 150)",
+          "oklch(39% 0.008 150)",
+          "oklch(51% 0.008 150)",
+          "oklch(63% 0.008 150)",
+          "oklch(75% 0.008 150)",
+          "oklch(87% 0.008 150)",
+          "oklch(95% 0.008 150)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15% 0.008 150)",
+          "oklch(27% 0.008 150)",
+          "oklch(39% 0.008 150)",
+          "oklch(51% 0.008 150)",
+          "oklch(63% 0.008 150)",
+          "oklch(75% 0.008 150)",
+          "oklch(87% 0.008 150)",
+          "oklch(95% 0.008 150)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.008 150)",
+          "oklch(27% 0.008 150)",
+          "oklch(39% 0.008 150)",
+          "oklch(51% 0.008 150)",
+          "oklch(63% 0.008 150)",
+          "oklch(75% 0.008 150)",
+          "oklch(87% 0.008 150)",
+          "oklch(95% 0.008 150)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.008 150)",
+          "oklch(27% 0.008 150)",
+          "oklch(39% 0.008 150)",
+          "oklch(51% 0.008 150)",
+          "oklch(63% 0.008 150)",
+          "oklch(75% 0.008 150)",
+          "oklch(87% 0.008 150)",
+          "oklch(95% 0.008 150)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.008 150)",
+          "oklch(27% 0.008 150)",
+          "oklch(39% 0.008 150)",
+          "oklch(51% 0.008 150)",
+          "oklch(63% 0.008 150)",
+          "oklch(75% 0.008 150)",
+          "oklch(87% 0.008 150)",
+          "oklch(95% 0.008 150)"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Green",
+        "tonalRamp": [
+          "oklch(15% 0.045 150)",
+          "oklch(27% 0.045 150)",
+          "oklch(39% 0.045 150)",
+          "oklch(51% 0.045 150)",
+          "oklch(63% 0.045 150)",
+          "oklch(75% 0.045 150)",
+          "oklch(87% 0.045 150)",
+          "oklch(95% 0.045 150)"
+        ]
+      },
+      "green-dark": {
+        "role": "primary",
+        "displayName": "Green Dark",
+        "tonalRamp": [
+          "oklch(15% 0.045 150)",
+          "oklch(27% 0.045 150)",
+          "oklch(39% 0.045 150)",
+          "oklch(51% 0.045 150)",
+          "oklch(63% 0.045 150)",
+          "oklch(75% 0.045 150)",
+          "oklch(87% 0.045 150)",
+          "oklch(95% 0.045 150)"
+        ]
+      },
+      "green-pale": {
+        "role": "primary",
+        "displayName": "Green Pale",
+        "tonalRamp": [
+          "oklch(15% 0.045 150)",
+          "oklch(27% 0.045 150)",
+          "oklch(39% 0.045 150)",
+          "oklch(51% 0.045 150)",
+          "oklch(63% 0.045 150)",
+          "oklch(75% 0.045 150)",
+          "oklch(87% 0.045 150)",
+          "oklch(95% 0.045 150)"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Amber",
+        "tonalRamp": [
+          "oklch(15% 0.045 80)",
+          "oklch(27% 0.045 80)",
+          "oklch(39% 0.045 80)",
+          "oklch(51% 0.045 80)",
+          "oklch(63% 0.045 80)",
+          "oklch(75% 0.045 80)",
+          "oklch(87% 0.045 80)",
+          "oklch(95% 0.045 80)"
+        ]
+      },
+      "amber-pale": {
+        "role": "secondary",
+        "displayName": "Amber Pale",
+        "tonalRamp": [
+          "oklch(15% 0.045 80)",
+          "oklch(27% 0.045 80)",
+          "oklch(39% 0.045 80)",
+          "oklch(51% 0.045 80)",
+          "oklch(63% 0.045 80)",
+          "oklch(75% 0.045 80)",
+          "oklch(87% 0.045 80)",
+          "oklch(95% 0.045 80)"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Red",
+        "tonalRamp": [
+          "oklch(15% 0.045 35)",
+          "oklch(27% 0.045 35)",
+          "oklch(39% 0.045 35)",
+          "oklch(51% 0.045 35)",
+          "oklch(63% 0.045 35)",
+          "oklch(75% 0.045 35)",
+          "oklch(87% 0.045 35)",
+          "oklch(95% 0.045 35)"
+        ]
+      },
+      "red-pale": {
+        "role": "secondary",
+        "displayName": "Red Pale",
+        "tonalRamp": [
+          "oklch(15% 0.045 35)",
+          "oklch(27% 0.045 35)",
+          "oklch(39% 0.045 35)",
+          "oklch(51% 0.045 35)",
+          "oklch(63% 0.045 35)",
+          "oklch(75% 0.045 35)",
+          "oklch(87% 0.045 35)",
+          "oklch(95% 0.045 35)"
+        ]
+      },
+      "rail": {
+        "role": "primary",
+        "displayName": "Rail",
+        "tonalRamp": [
+          "oklch(15% 0.045 150)",
+          "oklch(27% 0.045 150)",
+          "oklch(39% 0.045 150)",
+          "oklch(51% 0.045 150)",
+          "oklch(63% 0.045 150)",
+          "oklch(75% 0.045 150)",
+          "oklch(87% 0.045 150)",
+          "oklch(95% 0.045 150)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial page title",
+        "purpose": "Page titles, with responsive mobile sizing."
+      },
+      "body": {
+        "displayName": "Working text",
+        "purpose": "Default operational reading text."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "control-background",
+        "value": "background .15s ease",
+        "purpose": "Button hover feedback."
+      },
+      {
+        "name": "navigation-drawer",
+        "value": "transform .2s ease-out",
+        "purpose": "Mobile rail entry."
+      },
+      {
+        "name": "chart-width",
+        "value": "width .25s ease-out",
+        "purpose": "Filtered chart updates."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms; animation-iteration-count: 1",
+        "purpose": "Reduced-motion override for animations and transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1250px"
+      },
+      {
+        "name": "stacked",
+        "value": "1050px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Compact working action.",
+      "html": "<button class=\"ds-button-primary\">View evidence</button>",
+      "css": ".ds-button-primary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:var(--green-dark);color:#fff;border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-primary:hover:not(:disabled){background:#285943}.ds-button-primary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-primary:disabled{opacity:.52;cursor:not-allowed}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Compact working action.",
+      "html": "<button class=\"ds-button-secondary\">View evidence</button>",
+      "css": ".ds-button-secondary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;color:var(--ink);border:1px solid #cdd6cb;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-secondary:hover:not(:disabled){background:#eef3eb}.ds-button-secondary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-secondary:disabled{opacity:.52;cursor:not-allowed}"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Compact working action.",
+      "html": "<button class=\"ds-button-ghost\">View evidence</button>",
+      "css": ".ds-button-ghost{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:transparent;color:var(--muted);border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-ghost:hover:not(:disabled){background:#ebefe7}.ds-button-ghost:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-ghost:disabled{opacity:.52;cursor:not-allowed}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Explicitly labelled working field.",
+      "html": "<label class=\"ds-label\">Decision rationale<input class=\"ds-input\" placeholder=\"Explain the decision\" /></label>",
+      "css": ".ds-label{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:500;color:var(--ink)}.ds-input{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;color:var(--ink);border:1px solid #cbd3c9;border-radius:6px;padding:10px 11px;min-height:40px}.ds-input::placeholder{color:#737e76}.ds-input:focus-visible{outline:2px solid #368456;outline-offset:3px}"
+    },
+    {
+      "name": "Review badge",
+      "kind": "chip",
+      "description": "A written review state reinforced with semantic color.",
+      "html": "<span class=\"ds-badge\">Under review</span>",
+      "css": ".ds-badge{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;display:inline-flex;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:500;line-height:1.45;background:#f9efda;color:#86621b}"
+    },
+    {
+      "name": "Forest navigation",
+      "kind": "nav",
+      "description": "Persistent selected destination in the forest rail.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example\"><a href=\"#overview\" aria-current=\"page\">Overview</a><a href=\"#feedback\">Feedback</a></nav>",
+      "css": ".ds-nav{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#18392e;padding:16px;width:224px}.ds-nav a{display:flex;color:#b8cdbe;padding:11px 13px;margin:4px 0;border-radius:6px;text-decoration:none}.ds-nav a:hover{background:#244c3c;color:#fff}.ds-nav a[aria-current]{background:#365746;color:#f0f6ed}.ds-nav a:focus-visible{outline:2px solid #368456;outline-offset:3px}"
+    },
+    {
+      "name": "Evidence finding",
+      "kind": "card",
+      "refersTo": "finding",
+      "description": "A bounded evidence record with explicit synthetic provenance.",
+      "html": "<article class=\"ds-finding\"><span>Precomputed synthetic analysis</span><h3>Review the source evidence</h3><blockquote>\u201cSynthetic example quotation.\u201d</blockquote></article>",
+      "css": ".ds-finding{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:17px;color:var(--ink)}.ds-finding span{font-size:10px;color:var(--muted)}.ds-finding h3{font-size:14px;font-weight:600;line-height:1.5;margin:10px 0}.ds-finding blockquote{font-size:11px;line-height:1.8;margin:12px 0;padding:0;color:#516946}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Partner Research Brief",
+    "overview": "Relay presents partner intelligence as a contemporary editorial research brief inside a working operations tool. A deep forest rail anchors a warm near-white workspace; restrained containers and aligned tables keep evidence readable.\n\nInter carries the work and Newsreader provides editorial page titles. Density serves repeated scanning, while exact quotations, explicit status labels and visible provenance support careful review. Synthetic examples and unavailable live analysis remain clearly disclosed.",
+    "keyCharacteristics": [
+      "Forest navigation with a quiet, near-white workspace.",
+      "Editorial titles and practical, compact work typography.",
+      "Flat surfaces, fine borders and restrained semantic color.",
+      "Evidence, provenance and human review remain visible."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Rule",
+        "body": "Keep quotations, source context and review status legible beside the decisions they support.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Separate content with tone, spacing and fine borders; the implemented interface uses no elevation shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Inter for working text and Newsreader for editorial titles.",
+      "Do pair semantic colors with written status labels.",
+      "Do preserve visible focus, explicit form labels and scrollable dense tables.",
+      "Do disclose precomputed synthetic examples and that new imports are saved without live AI analysis."
+    ],
+    "donts": [
+      "Don't imply synthetic findings are live model results.",
+      "Don't replace source quotations or provenance with decorative summaries.",
+      "Don't introduce decorative elevation or imagery into the restrained operations workspace."
+    ]
+  }
+}

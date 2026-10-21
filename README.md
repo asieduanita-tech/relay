@@ -18,16 +18,13 @@ Open `http://127.0.0.1:3000`. Development uses ignored `.data/` files if `DATABA
 
 To use PostgreSQL, set `DATABASE_URL` and run `npm run db:migrate`. Use a pooled PostgreSQL connection with TLS enabled; Vercel's Neon integration is supported. Migrations create `relay_workspaces` and `relay_usage` and do not drop existing data.
 
-## Real AI
+## Analysis in this no-spend release
 
-Relay uses OpenAI's Responses API with a structured Zod schema. Choose one configuration:
+Live model calls are disabled in code and in all Vercel environments. Changing `AI_ENABLED` alone cannot enable them. No payment card, credit purchase, paid upgrade, or billable AI call is authorised.
 
-- Vercel AI Gateway: `AI_PROVIDER=vercel`, `AI_ENABLED=true`, and project OIDC authentication or `AI_GATEWAY_API_KEY`. Default model: `openai/gpt-4.1-mini`. `vercel env pull` refreshes local project OIDC tokens.
-- Direct OpenAI: `AI_PROVIDER=openai`, `OPENAI_API_KEY`, `AI_ENABLED=true`. Default model: `gpt-4.1-mini`.
+Seed findings demonstrate extraction and classification and are explicitly labelled **precomputed synthetic analysis**. Newly imported text is stored without automatic extraction. Review, classification corrections, grouping corrections, analytics, decisions, actions and partner-update drafts remain functional.
 
-`OPENAI_MODEL` overrides the default. A model must support structured outputs. No model request is made until the visitor explicitly chooses analysis. Source text and a bounded catalogue of issue titles are sent; the model has no tools or credentials. Relay disables response storage, validates the returned shape and product area, verifies literal source quotations and issue IDs, and stores suggestions for human review. This does not guarantee the interpretation is correct. Provider/gateway retention policies still apply; use fictional text only.
-
-Each request analyses one source, has a 42-second provider timeout, and allows no automatic provider retry. Failed requests retain source text and can be retried explicitly. Attempts count against quotas, including failed provider calls, to bound spending. Analysis state is persisted before the model call; duplicate concurrent requests are rejected. A stale analysis lease can be retried after two minutes. There is no fire-and-forget background job.
+The retained provider adapter shows how a future explicitly authorised AI version could use schema validation, exact quote checks, and human review. It is not active or a claim that this release performs live extraction.
 
 ## Demo controls and persistence
 
@@ -35,7 +32,7 @@ Each visitor receives an anonymous 24-hour workspace, bound to an HTTP-only sign
 
 Domain entities are typed records in a workspace JSONB document, with a separate shared quota table. This deliberate MVP compromise makes whole-workspace resets, isolation, and consistent metrics simple. It is not a proposed long-term database structure for a multi-team production product; normalise records and add indexed queries, membership, audit identity and row policies before that use.
 
-Limits: 100 KB CSV, 25 rows/import, 5,000 characters/source, 150 sources/workspace, 10 live analyses/session/day and 20/IP/day. `AI_DAILY_GLOBAL_LIMIT` defaults to 100 attempts/day. Durable quota reservations are transactional across server instances. Set `AI_ENABLED=false` and redeploy to disable model calls. These limits cap request volume, not a guaranteed currency amount; configure provider spending controls as well. IP-derived quota keys use a one-way digest; raw source text is not included in application error logs.
+Limits: 100 KB CSV, 25 rows/import, 5,000 characters/source, 150 sources/workspace, 10 live analyses/session/day and 20/IP/day. `AI_DAILY_GLOBAL_LIMIT` defaults to 100 attempts/day. Durable quota reservations are transactional across server instances. The no-spend release additionally hard-disables calls in server code. These limits cap request volume, not a guaranteed currency amount; configure provider spending controls as well. IP-derived quota keys use a one-way digest; raw source text is not included in application error logs.
 
 A daily authenticated Vercel cron removes expired workspace content and usage records older than two days. Set a random `CRON_SECRET`. Workspace access ends at expiry; physical deletion occurs at the next successful cleanup. Local `.data/` files are development-only and have no scheduled cleanup.
 
@@ -70,7 +67,7 @@ Browser checks use installed Google Chrome through Playwright (`channel: chrome`
 2. Connect the free Neon PostgreSQL integration and run `npm run db:migrate` against its database.
 3. Configure `DATABASE_URL`, `SESSION_SECRET`, `CRON_SECRET`, the chosen AI authentication, `AI_PROVIDER`, `AI_ENABLED`, and `AI_DAILY_GLOBAL_LIMIT` in Vercel. Keep secrets out of repository files and command arguments.
 4. Use `npm run build` as the build command, then deploy. `vercel.json` defines the daily cleanup schedule.
-5. Verify a fresh visitor can import, run live analysis, review evidence, record a decision, and complete an action. Check a second browser session remains independent.
+5. Verify a fresh visitor can import, confirm live analysis is disabled, review seeded evidence, record a decision, and complete an action. Check a second browser session remains independent.
 
 The one-time `scripts/configure-vercel.mjs` generates session/cleanup secrets in memory and adds project settings through stdin. Do not rerun it blindly; rotating the session secret invalidates existing sessions. `.vercel/`, `.env.local`, raw workspace content and browser traces are ignored.
 

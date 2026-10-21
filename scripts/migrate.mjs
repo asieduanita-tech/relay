@@ -1,0 +1,10 @@
+import nextEnv from '@next/env';
+const {loadEnvConfig}=nextEnv;
+import postgres from 'postgres';
+loadEnvConfig(process.cwd());
+if(!process.env.DATABASE_URL)throw new Error('Set DATABASE_URL in .env.local.');
+const sql=postgres(process.env.DATABASE_URL,{max:1,prepare:false});
+await sql`CREATE TABLE IF NOT EXISTS relay_workspaces (id text PRIMARY KEY, data jsonb NOT NULL, expires_at timestamptz NOT NULL)`;
+await sql`CREATE INDEX IF NOT EXISTS relay_workspace_expiry ON relay_workspaces(expires_at)`;
+await sql`CREATE TABLE IF NOT EXISTS relay_usage (bucket text NOT NULL, day date NOT NULL, count integer NOT NULL DEFAULT 0, PRIMARY KEY(bucket, day))`;
+console.log('Relay database schema is ready.');await sql.end();
