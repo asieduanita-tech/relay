@@ -126,7 +126,7 @@ These are proposed release checks and future evaluation measures, not achieved r
 22 October: finish ingestion, real AI review, analytics, opportunities, and isolated persistence as one complete workflow.
 23 October: integration checks, Impeccable design/usability review and material fixes, Vercel deployment, README and concise case study. Prioritise the complete core workflow if time tightens.
 
-Approval is requested for the proposal, including anonymous database-backed demo sessions and fictional aliases. AI provider/model, database provider, credentials, GitHub repository destination, and Vercel project access remain to be resolved before the corresponding integration or deployment. No features have been implemented.
+The proposal was approved on 21 October 2026, including isolated anonymous demo workspaces and fictional aliases. Relay is implemented with Neon PostgreSQL, GitHub repository asieduanita-tech/relay, and Vercel project relay. The no-spend scope below supersedes live extraction.
 
 
 ## No-spend scope update — 21 October 2026

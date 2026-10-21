@@ -21,3 +21,11 @@ No-spend release: live model calls are hard-disabled in server code and AI_ENABL
 - Production deployment smoke checks are recorded after deployment; a successful local check alone does not prove production configuration.
 - Automatic GitHub-to-Vercel linking was rejected because the Vercel account needs a GitHub Login Connection. CLI deployment remains available; connecting GitHub later is optional account setup.
 - No real user research, business-impact metrics, representative AI evaluation, enterprise authentication, production multi-team security certification, or external message delivery is claimed.
+
+## Production verification
+
+Production deployed successfully on Vercel: https://relay-olive-six.vercel.app (deployment dpl_DBLPJ8xC7ZvkGF53QbxFPJsuudTV).
+
+The public alias returned HTTP 200 without Vercel sign-in. Both production Playwright checks passed: the full seeded evidence/review/decision/action/communication/import/reset workflow with separate browser-session isolation, and desktop/mobile route checks without document-level overflow. The live /api/analyze endpoint returned HTTP 503 with the explicit no-spend explanation; no model request was made. Production uses PostgreSQL and signed secure cookies. The production build completed successfully.
+
+Application source and documentation are published at https://github.com/asieduanita-tech/relay. Deployment used the CLI because automatic GitHub linking requires a separate Vercel account Login Connection.

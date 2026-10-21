@@ -1,5 +1,9 @@
 # Relay
 
+Live demo: https://relay-olive-six.vercel.app
+
+Repository: https://github.com/asieduanita-tech/relay
+
 An evidence-to-decision workspace for Product Operations teams at B2B fintechs. Ingest fictional partner feedback, review AI-extracted problems, compare recurring issues, and record decisions with accountable follow-through.
 
 **All partner accounts, complaints, metrics, people, and operational records are synthetic.** Account profiles are inspired by Monzo, Morgan Stanley, Capitec, Nubank, and UniCredit; there is no affiliation and no claim about those companies' performance.

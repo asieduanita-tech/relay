@@ -1,6 +1,6 @@
 # Relay implementation proposal
 
-Status: awaiting approval. Read PRODUCT.md as the durable product brief. This document proposes implementation rather than recording completed work.
+Status: approved on 21 October 2026; implemented with the no-spend scope update below. Read PRODUCT.md as the durable product brief. This document proposes implementation rather than recording completed work.
 
 ## Page structure
 

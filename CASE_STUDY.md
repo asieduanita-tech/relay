@@ -44,7 +44,7 @@ Real extraction uses the OpenAI Responses API, directly or through Vercel AI Gat
 - Browser tests pass for the seeded evidence-to-decision workflow, action completion, import, origin rejection, independent visitor state, and reset isolation using development storage.
 - Desktop and mobile route checks pass without document-level horizontal overflow.
 - The production build and TypeScript checks pass.
-- PostgreSQL provisioning and schema migration completed successfully. Persistent workflow checks, final accessibility review, and live AI verification are tracked in VALIDATION.md as they finish.
+- PostgreSQL provisioning and schema migration completed successfully. Persistent workflow checks and rendered accessibility checks passed; final release evidence and the disabled-AI limitation are recorded in VALIDATION.md.
 
 These checks demonstrate software behaviour on synthetic inputs. They do not establish general extraction accuracy, production security, user value, or business impact.
 

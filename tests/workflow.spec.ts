@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs/promises';
-const origin='http://127.0.0.1:3000';
+const origin=process.env.PLAYWRIGHT_BASE_URL||'http://127.0.0.1:3000';
 test('complete seed evidence, review, decision, action and communication workflow with isolated reset',async({page,browser})=>{
  await page.goto('/');await expect(page.getByRole('heading',{name:'Partner intelligence'})).toBeVisible();await expect(page.getByText('Reviewed sources',{exact:true})).toBeVisible();
  await page.getByRole('link',{name:'Payment status leaves partners in the dark',exact:true}).click();await expect(page.getByText('5 unique partners',{exact:true})).toBeVisible();await page.getByRole('link',{name:'View original & review'}).first().click();await expect(page.getByText('Precomputed synthetic analysis · fixture v1')).toBeVisible();
