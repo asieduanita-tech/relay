@@ -216,8 +216,8 @@
       },
       {
         "name": "reduced-motion",
-        "value": "0.01ms; animation-iteration-count: 1",
-        "purpose": "Reduced-motion override for animations and transitions."
+        "value": "transition: none; animation: none",
+        "purpose": "Static chart, button and drawer transitions; static spinner and skeleton states retain loading status text."
       }
     ],
     "breakpoints": [
@@ -246,7 +246,7 @@
       "refersTo": "button-primary",
       "description": "Compact working action.",
       "html": "<button class=\"ds-button-primary\">View evidence</button>",
-      "css": ".ds-button-primary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:var(--green-dark);color:#fff;border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-primary:hover:not(:disabled){background:#285943}.ds-button-primary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-primary:disabled{opacity:.52;cursor:not-allowed}"
+      "css": ".ds-button-primary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:var(--green-dark);color:#fff;border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-primary:hover:not(:disabled){background:#285943}.ds-button-primary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-primary:disabled{opacity:.52;cursor:not-allowed}@media(max-width:760px){.ds-button-primary{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition:none}}"
     },
     {
       "name": "Secondary button",
@@ -254,7 +254,7 @@
       "refersTo": "button-secondary",
       "description": "Compact working action.",
       "html": "<button class=\"ds-button-secondary\">View evidence</button>",
-      "css": ".ds-button-secondary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;color:var(--ink);border:1px solid #cdd6cb;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-secondary:hover:not(:disabled){background:#eef3eb}.ds-button-secondary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-secondary:disabled{opacity:.52;cursor:not-allowed}"
+      "css": ".ds-button-secondary{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;color:var(--ink);border:1px solid #cdd6cb;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-secondary:hover:not(:disabled){background:#eef3eb}.ds-button-secondary:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-secondary:disabled{opacity:.52;cursor:not-allowed}@media(max-width:760px){.ds-button-secondary{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-button-secondary{transition:none}}"
     },
     {
       "name": "Ghost button",
@@ -262,7 +262,7 @@
       "refersTo": "button-ghost",
       "description": "Compact working action.",
       "html": "<button class=\"ds-button-ghost\">View evidence</button>",
-      "css": ".ds-button-ghost{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:transparent;color:var(--muted);border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-ghost:hover:not(:disabled){background:#ebefe7}.ds-button-ghost:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-ghost:disabled{opacity:.52;cursor:not-allowed}"
+      "css": ".ds-button-ghost{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:transparent;color:var(--muted);border:1px solid transparent;border-radius:6px;padding:10px 15px;min-height:40px;font-weight:550;cursor:pointer;transition:background .15s ease}.ds-button-ghost:hover:not(:disabled){background:#ebefe7}.ds-button-ghost:focus-visible{outline:2px solid #368456;outline-offset:3px}.ds-button-ghost:disabled{opacity:.52;cursor:not-allowed}@media(max-width:760px){.ds-button-ghost{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-button-ghost{transition:none}}"
     },
     {
       "name": "Text field",
@@ -282,7 +282,7 @@
     {
       "name": "Forest navigation",
       "kind": "nav",
-      "description": "Persistent selected destination in the forest rail.",
+      "description": "Persistent selected destination in the forest rail. On mobile, a labelled modal drawer contains focus, closes with Escape, restores opener focus and makes background content inert; resizing to desktop closes it.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Example\"><a href=\"#overview\" aria-current=\"page\">Overview</a><a href=\"#feedback\">Feedback</a></nav>",
       "css": ".ds-nav{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#18392e;padding:16px;width:224px}.ds-nav a{display:flex;color:#b8cdbe;padding:11px 13px;margin:4px 0;border-radius:6px;text-decoration:none}.ds-nav a:hover{background:#244c3c;color:#fff}.ds-nav a[aria-current]{background:#365746;color:#f0f6ed}.ds-nav a:focus-visible{outline:2px solid #368456;outline-offset:3px}"
     },
@@ -291,7 +291,7 @@
       "kind": "card",
       "refersTo": "finding",
       "description": "A bounded evidence record with explicit synthetic provenance.",
-      "html": "<article class=\"ds-finding\"><span>Precomputed synthetic analysis</span><h3>Review the source evidence</h3><blockquote>\u201cSynthetic example quotation.\u201d</blockquote></article>",
+      "html": "<article class=\"ds-finding\"><span>Precomputed synthetic analysis</span><h3>Review the source evidence</h3><blockquote>“Synthetic example quotation.”</blockquote></article>",
       "css": ".ds-finding{font-family:var(--font-sans,'Inter Variable',sans-serif);font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:17px;color:var(--ink)}.ds-finding span{font-size:10px;color:var(--muted)}.ds-finding h3{font-size:14px;font-weight:600;line-height:1.5;margin:10px 0}.ds-finding blockquote{font-size:11px;line-height:1.8;margin:12px 0;padding:0;color:#516946}"
     }
   ],

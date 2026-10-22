@@ -4,6 +4,7 @@ import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {Workspace} from './types';
 import {seed} from './seed';
+import {upgradeWorkspace} from './workspace-upgrade';
 const root=path.join(process.cwd(),'.data');
 export const durable=!!process.env.DATABASE_URL;
 let database:ReturnType<typeof postgres>|undefined;
@@ -20,11 +21,14 @@ export async function createWorkspace(token:string,expiresAt:string){
  return data;
 }
 export async function readWorkspace(token:string):Promise<Workspace>{
- if(durable){const rows=await db()`SELECT data FROM relay_workspaces WHERE id=${token} AND expires_at > now()`;if(!rows[0])throw new AppError('Your demo session expired. Reload to start a fresh workspace.',401);return rows[0].data as Workspace}
- try{const record=JSON.parse(await readFile(path.join(root,token+'.json'),'utf8'));if(new Date(record.expiresAt)<new Date())throw new Error();return record.data}catch{throw new AppError('Your demo session expired. Reload to start a fresh workspace.',401)}
+ if(durable){const rows=await db()`SELECT data FROM relay_workspaces WHERE id=${token} AND expires_at > now()`;if(!rows[0])throw new AppError('Your demo session expired. Reload to start a fresh workspace.',401);return upgradeWorkspace(rows[0].data as Workspace)}
+ let record:{data:Workspace;expiresAt:string};
+ try{record=JSON.parse(await readFile(path.join(root,token+'.json'),'utf8'));if(new Date(record.expiresAt)<new Date())throw new Error()}catch{throw new AppError('Your demo session expired. Reload to start a fresh workspace.',401)}
+ // Schema failures must not masquerade as expiry and replace saved operator work.
+ return upgradeWorkspace(record.data);
 }
 export async function changeWorkspace<T>(token:string,fn:(w:Workspace)=>T|Promise<T>):Promise<T>{
- if(durable){return await db().begin(async sql=>{const rows=await sql`SELECT data FROM relay_workspaces WHERE id=${token} AND expires_at>now() FOR UPDATE`;if(!rows[0])throw new AppError('Your demo session expired. Reload to start again.',401);const w=rows[0].data as Workspace;const result=await fn(w);await sql`UPDATE relay_workspaces SET data=${sql.json(w)} WHERE id=${token}`;return result}) as T}
+ if(durable){return await db().begin(async sql=>{const rows=await sql`SELECT data FROM relay_workspaces WHERE id=${token} AND expires_at>now() FOR UPDATE`;if(!rows[0])throw new AppError('Your demo session expired. Reload to start again.',401);const w=upgradeWorkspace(rows[0].data as Workspace);const result=await fn(w);await sql`UPDATE relay_workspaces SET data=${sql.json(w)} WHERE id=${token}`;return result}) as T}
  return serial(token,async()=>{const w=await readWorkspace(token);const result=await fn(w);const old=JSON.parse(await readFile(path.join(root,token+'.json'),'utf8'));const target=path.join(root,token+'.json');await writeFile(target+'.tmp',JSON.stringify({...old,data:w}));await rename(target+'.tmp',target);return result});
 }
 export async function reserveQuota(scopes:{key:string;limit:number}[]){

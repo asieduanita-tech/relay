@@ -1,3 +1,4 @@
+import type {PerformanceDataset} from './metrics';
 export const AREAS = ['Cross-border payments','Multi-currency accounts','Cards, including disputes','End-user KYC','Risk & Compliance'] as const;
 export type Area = typeof AREAS[number];
 export type Partner = {id:string;name:string;initials:string;inspiredBy:string;region:string;color:string};
@@ -9,7 +10,7 @@ export type Decision = {id:string;status:DecisionStatus;rationale:string;owner:s
 export type Action = {id:string;title:string;owner:string;due:string;done:boolean};
 export type PartnerUpdate = {id:string;partnerId:string;text:string;communicatedAt:string|null};
 export type Opportunity = {id:string;title:string;outcome:string;issueIds:string[];priority:'High'|'Medium'|'Low';priorityRationale:string;status:DecisionStatus;owner:string;reviewDate:string;decisions:Decision[];actions:Action[];updates:PartnerUpdate[]};
-export type Workspace = {version:number;createdAt:string;sources:Source[];findings:Finding[];issues:Issue[];opportunities:Opportunity[]};
+export type Workspace = {demoContentVersion?:2;schemaVersion:2;performance:PerformanceDataset;version:number;createdAt:string;sources:Source[];findings:Finding[];issues:Issue[];opportunities:Opportunity[]};
 export type Filters = {partner:string;area:string;from:string;to:string;search:string};
 export type Capabilities = {storage:'local'|'postgres';ai:boolean;model:string;expiresAt:string};
 export const OWNERS = ['Avery Chen','Jordan Ellis','Sam Okafor','Priya Shah'];

@@ -1,0 +1,988 @@
+{
+  "label": "SYNTHETIC DEMO DATA — no real-company performance",
+  "schemaVersion": 2,
+  "fixtureVersion": 4,
+  "asOf": "2026-10-21T00:00:00Z",
+  "counts": {
+    "products": 5,
+    "partners": 5,
+    "periods": 6,
+    "observations": 270,
+    "historicalFeedback": 54
+  },
+  "periods": [
+    {
+      "id": "2026-04",
+      "start": "2026-04-01T00:00:00Z",
+      "endExclusive": "2026-05-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    },
+    {
+      "id": "2026-05",
+      "start": "2026-05-01T00:00:00Z",
+      "endExclusive": "2026-06-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    },
+    {
+      "id": "2026-06",
+      "start": "2026-06-01T00:00:00Z",
+      "endExclusive": "2026-07-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    },
+    {
+      "id": "2026-07",
+      "start": "2026-07-01T00:00:00Z",
+      "endExclusive": "2026-08-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    },
+    {
+      "id": "2026-08",
+      "start": "2026-08-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    },
+    {
+      "id": "2026-09",
+      "start": "2026-09-01T00:00:00Z",
+      "endExclusive": "2026-10-01T00:00:00Z",
+      "status": "complete",
+      "timezone": "UTC"
+    }
+  ],
+  "samples": [
+    {
+      "definition": {
+        "id": "payment-success",
+        "productId": "payments",
+        "name": "Successful payments",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Successful payment attempts reaching terminal status in the period.",
+        "denominator": "All eligible successful or failed terminal payment attempts in the period.",
+        "exclusions": "Attempts initiated in the month still pending at month-end; attempts cancelled before acceptance with cancellation timestamp in the month.",
+        "cohort": "UTC terminal-status timestamp; a retry is a separate attempt, not a unique payment."
+      },
+      "observation": {
+        "id": "metric-v2:moss:payment-success:2026-09",
+        "partnerId": "moss",
+        "productId": "payments",
+        "metricId": "payment-success",
+        "periodId": "2026-09",
+        "numerator": 997000,
+        "denominator": 1000000,
+        "excludedCount": 25000,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:payment-success:2026-09",
+        "partnerId": "moss",
+        "productId": "payments",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:moss:payment-success:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Payment success is improving as the rate of reversed payments decreases. Closed beneficiary accounts and account details mismatches remain high-severity problems. We are reminding customers to confirm accounts are open and check beneficiary details. Failed payments also affect the success rate; a separate failed-payment rate is not displayed. This is our synthetic operational interpretation, not a proven causal relationship.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "reference-completeness",
+        "productId": "accounts",
+        "name": "Settlement reference completeness",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Eligible statement rows containing a non-empty settlement reference.",
+        "denominator": "Posted settlement transaction rows exported in the period.",
+        "exclusions": "Opening balances, summaries and non-settlement rows.",
+        "cohort": "UTC export timestamp; export rows, not unique transactions or accounts."
+      },
+      "observation": {
+        "id": "metric-v2:meridian:reference-completeness:2026-09",
+        "partnerId": "meridian",
+        "productId": "accounts",
+        "metricId": "reference-completeness",
+        "periodId": "2026-09",
+        "numerator": 50560,
+        "denominator": 51840,
+        "excludedCount": 778,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:reference-completeness:2026-09",
+        "partnerId": "meridian",
+        "productId": "accounts",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:meridian:reference-completeness:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Most exported settlement rows include references now. The exceptions still need a manual ledger lookup.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "dispute-deadline",
+        "productId": "cards",
+        "name": "Dispute evidence deadline adherence",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Eligible dispute cases with complete evidence submitted at or before their evidence deadline.",
+        "denominator": "Cases requiring evidence whose evidence deadline falls in the period.",
+        "exclusions": "Withdrawn cases and cases not requiring evidence, assigned by original evidence deadline in the month.",
+        "cohort": "UTC evidence deadline; one case once. Missing evidence at deadline is a failure, even if still open."
+      },
+      "observation": {
+        "id": "metric-v2:cape:dispute-deadline:2026-09",
+        "partnerId": "cape",
+        "productId": "cards",
+        "metricId": "dispute-deadline",
+        "periodId": "2026-09",
+        "numerator": 127,
+        "denominator": 151,
+        "excludedCount": 2,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:dispute-deadline:2026-09",
+        "partnerId": "cape",
+        "productId": "cards",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:cape:dispute-deadline:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Evidence deadlines are being missed while documents are tracked in spreadsheets. We need a receipt, completeness checklist and named next step.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "kyc-first-approval",
+        "productId": "kyc",
+        "name": "First-attempt KYC approval rate",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Approved completed first verification attempts.",
+        "denominator": "Eligible approved or rejected first attempts completed in the period.",
+        "exclusions": "Pending first attempts initiated in the month and still pending at month-end; abandoned first attempts by abandonment date; retries and test identities by decision date. Each excluded record belongs to one mutually exclusive category.",
+        "cohort": "UTC first-attempt decision timestamp; a first attempt is counted once, not every document upload."
+      },
+      "observation": {
+        "id": "metric-v2:nuvia:kyc-first-approval:2026-09",
+        "partnerId": "nuvia",
+        "productId": "kyc",
+        "metricId": "kyc-first-approval",
+        "periodId": "2026-09",
+        "numerator": 4729,
+        "denominator": 5376,
+        "excludedCount": 430,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:kyc-first-approval:2026-09",
+        "partnerId": "nuvia",
+        "productId": "kyc",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:nuvia:kyc-first-approval:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "First-attempt approvals look healthier in this synthetic review. Keep the document guidance and clarify the remaining rejection reasons.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "risk-sla",
+        "productId": "risk",
+        "name": "Risk review SLA adherence",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Eligible reviews completed at or before their two-business-day SLA deadline.",
+        "denominator": "Eligible reviews with an SLA deadline in the period, including open overdue reviews.",
+        "exclusions": "Duplicate and cancelled reviews, assigned by their original nominal SLA deadline in the month.",
+        "cohort": "UTC SLA deadline. Synthetic deadlines assume Monday–Friday, no public holidays, no pauses; due timestamps are preclassified fixture inputs, not calculated from real cases."
+      },
+      "observation": {
+        "id": "metric-v2:union:risk-sla:2026-09",
+        "partnerId": "union",
+        "productId": "risk",
+        "metricId": "risk-sla",
+        "periodId": "2026-09",
+        "numerator": 576,
+        "denominator": 605,
+        "excludedCount": 9,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:risk-sla:2026-09",
+        "partnerId": "union",
+        "productId": "risk",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:union:risk-sla:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Timely review completion has improved. Please keep ownership visible for the remaining overdue cases.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "payment-reversal",
+        "productId": "payments",
+        "name": "Reversed payment rate",
+        "unit": "percent",
+        "direction": "lower-is-better",
+        "numerator": "Payments reversed during the 30-day observation window after settlement.",
+        "denominator": "Settled cross-border payments whose 30-day observation window closes in the reporting month.",
+        "exclusions": "Unsettled, cancelled and test payments.",
+        "cohort": "UTC observation-window close; one settled payment once. Different cohort from terminal-attempt success; rates are not complements."
+      },
+      "observation": {
+        "id": "metric-v2:moss:payment-reversal:2026-09",
+        "partnerId": "moss",
+        "productId": "payments",
+        "metricId": "payment-reversal",
+        "periodId": "2026-09",
+        "numerator": 1600,
+        "denominator": 1000000,
+        "excludedCount": 15000,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:payment-reversal:2026-09",
+        "partnerId": "moss",
+        "productId": "payments",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:moss:payment-reversal:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Fewer cross-border payments are being reversed. We remind customers to confirm beneficiary accounts are open before sending; please keep the reversal reason visible for the remaining cases.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "dispute-success",
+        "productId": "cards",
+        "name": "Successful disputes",
+        "unit": "percent",
+        "direction": "higher-is-better",
+        "numerator": "Closed eligible disputes decided in favour of the customer.",
+        "denominator": "Eligible disputes with a final won or lost outcome in the reporting month.",
+        "exclusions": "Open, withdrawn and duplicate disputes.",
+        "cohort": "UTC final outcome timestamp; one dispute once. Evidence submission alone is not a successful outcome."
+      },
+      "observation": {
+        "id": "metric-v2:meridian:dispute-success:2026-09",
+        "partnerId": "meridian",
+        "productId": "cards",
+        "metricId": "dispute-success",
+        "periodId": "2026-09",
+        "numerator": 783360,
+        "denominator": 1800000,
+        "excludedCount": 27000,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:dispute-success:2026-09",
+        "partnerId": "meridian",
+        "productId": "cards",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:meridian:dispute-success:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Dispute success is increasing. Our escalation guide is improving, but evidence is still often weak because submission guidelines are broad. We need reason-specific checklists and examples; this is a medium-severity issue.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "card-timeout",
+        "productId": "cards",
+        "name": "Timed out payment attempts",
+        "unit": "percent",
+        "direction": "lower-is-better",
+        "numerator": "Eligible card payment attempts ending in a timeout.",
+        "denominator": "All eligible card payment attempts initiated in the reporting month, including timed-out attempts.",
+        "exclusions": "Test attempts and attempts cancelled before submission.",
+        "cohort": "UTC initiation timestamp; each retry counts separately. Incorrect details are a fictional partner-reported explanation, not a measured timeout cause."
+      },
+      "observation": {
+        "id": "metric-v2:cape:card-timeout:2026-09",
+        "partnerId": "cape",
+        "productId": "cards",
+        "metricId": "card-timeout",
+        "periodId": "2026-09",
+        "numerator": 10500,
+        "denominator": 700000,
+        "excludedCount": 10500,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:card-timeout:2026-09",
+        "partnerId": "cape",
+        "productId": "cards",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:cape:card-timeout:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Customers are not receiving OTPs in time for card payments. Late codes can leave authentication attempts timed out; this is a high-severity partner concern. The monthly timeout rate has fallen, but the remaining cases still need investigation.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    },
+    {
+      "definition": {
+        "id": "inbound-flagged",
+        "productId": "accounts",
+        "name": "Flagged inbound payments (Risk & Compliance)",
+        "unit": "percent",
+        "direction": "lower-is-better",
+        "numerator": "Inbound payments flagged for suspected use inconsistent with the declared account purpose.",
+        "denominator": "All eligible inbound payments received in the reporting month.",
+        "exclusions": "Test, duplicate and rejected-before-receipt records.",
+        "cohort": "UTC receipt timestamp; one payment once. A flag indicates review, not confirmed misconduct. A lower rate is a monitoring preference, not a reason to suppress legitimate flags."
+      },
+      "observation": {
+        "id": "metric-v2:nuvia:inbound-flagged:2026-09",
+        "partnerId": "nuvia",
+        "productId": "accounts",
+        "metricId": "inbound-flagged",
+        "periodId": "2026-09",
+        "numerator": 20020,
+        "denominator": 1400000,
+        "excludedCount": 21000,
+        "synthetic": true,
+        "provenance": "Authored synthetic aggregate · performance-v2; no real banking telemetry"
+      },
+      "feedback": {
+        "id": "history-v2:inbound-flagged:2026-09",
+        "partnerId": "nuvia",
+        "productId": "accounts",
+        "periodId": "2026-09",
+        "observationId": "metric-v2:nuvia:inbound-flagged:2026-09",
+        "date": "2026-09-24",
+        "channel": "Meeting",
+        "text": "Business multicurrency accounts are receiving suspected friends-and-family inbound payments inconsistent with their declared purpose. This remains a medium-severity review concern even as the flagged rate falls. These are review flags, not confirmed misuse; clarify the declared purpose and investigate each case.",
+        "synthetic": true,
+        "provenance": "Authored historical synthetic feedback · performance-v2; contextual association, not causal evidence"
+      }
+    }
+  ],
+  "monthlyMetrics": [
+    {
+      "metricId": "payment-success",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 5947500,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 97.5,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 5959700,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 97.7,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 5971900,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 97.89999999999999,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 5978000,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 98,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 5990200,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 98.2,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 6081700,
+          "denominator": 6100000,
+          "excludedCount": 152500,
+          "rate": 99.7,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": 1.5
+    },
+    {
+      "metricId": "reference-completeness",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 138786,
+          "denominator": 146400,
+          "excludedCount": 2196,
+          "rate": 94.79918032786885,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 144947,
+          "denominator": 152256,
+          "excludedCount": 2283,
+          "rate": 95.19953236654057,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 151471,
+          "denominator": 158112,
+          "excludedCount": 2372,
+          "rate": 95.79981279093302,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 157737,
+          "denominator": 163968,
+          "excludedCount": 2459,
+          "rate": 96.19986826697892,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 164728,
+          "denominator": 169824,
+          "excludedCount": 2548,
+          "rate": 96.9992462785001,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 171640,
+          "denominator": 175680,
+          "excludedCount": 2635,
+          "rate": 97.70036429872495,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": 0.7011180202248539
+    },
+    {
+      "metricId": "dispute-deadline",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 1045,
+          "denominator": 1098,
+          "excludedCount": 17,
+          "rate": 95.17304189435337,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 1079,
+          "denominator": 1142,
+          "excludedCount": 17,
+          "rate": 94.48336252189142,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 1099,
+          "denominator": 1185,
+          "excludedCount": 17,
+          "rate": 92.74261603375528,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 1114,
+          "denominator": 1230,
+          "excludedCount": 18,
+          "rate": 90.5691056910569,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 1114,
+          "denominator": 1274,
+          "excludedCount": 19,
+          "rate": 87.44113029827315,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 1109,
+          "denominator": 1317,
+          "excludedCount": 20,
+          "rate": 84.20652999240698,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": -3.2346003058661665
+    },
+    {
+      "metricId": "kyc-first-approval",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 15870,
+          "denominator": 19520,
+          "excludedCount": 1561,
+          "rate": 81.30122950819673,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 16729,
+          "denominator": 20301,
+          "excludedCount": 1624,
+          "rate": 82.4048076449436,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 17645,
+          "denominator": 21081,
+          "excludedCount": 1687,
+          "rate": 83.7009629524216,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 18562,
+          "denominator": 21863,
+          "excludedCount": 1749,
+          "rate": 84.90143164250102,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 19518,
+          "denominator": 22643,
+          "excludedCount": 1812,
+          "rate": 86.19882524400478,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 20565,
+          "denominator": 23424,
+          "excludedCount": 1874,
+          "rate": 87.79456967213115,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": 1.5957444281263662
+    },
+    {
+      "metricId": "risk-sla",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 2289,
+          "denominator": 2562,
+          "excludedCount": 38,
+          "rate": 89.34426229508196,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 2401,
+          "denominator": 2665,
+          "excludedCount": 41,
+          "rate": 90.093808630394,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 2524,
+          "denominator": 2767,
+          "excludedCount": 42,
+          "rate": 91.2179255511384,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 2651,
+          "denominator": 2869,
+          "excludedCount": 43,
+          "rate": 92.40153363541303,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 2785,
+          "denominator": 2972,
+          "excludedCount": 44,
+          "rate": 93.70794078061911,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 2918,
+          "denominator": 3075,
+          "excludedCount": 47,
+          "rate": 94.89430894308943,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": 1.1863681624703162
+    },
+    {
+      "metricId": "payment-reversal",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 146400,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 2.4,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 134200,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 2.1999999999999997,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 118950,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 1.95,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 106750,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 1.7500000000000002,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 92110,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 1.51,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 9760,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 0.16,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": -1.35
+    },
+    {
+      "metricId": "dispute-success",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 1952000,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 32,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 2074000,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 34,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 2196000,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 36,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 2318000,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 38,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 2623000,
+          "denominator": 6297030,
+          "excludedCount": 94455,
+          "rate": 41.65455778359004,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 2654720,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 43.519999999999996,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": 1.865442216409953
+    },
+    {
+      "metricId": "card-timeout",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 396500,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 6.5,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 427000,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 7.000000000000001,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 463600,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 7.6,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 500200,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 8.200000000000001,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 537410,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 8.81,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 91500,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 1.5,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": -7.3100000000000005
+    },
+    {
+      "metricId": "inbound-flagged",
+      "months": [
+        {
+          "period": "2026-04",
+          "numerator": 579500,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 9.5,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-05",
+          "numerator": 616100,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 10.100000000000001,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-06",
+          "numerator": 664900,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 10.9,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-07",
+          "numerator": 695400,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 11.4,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-08",
+          "numerator": 727120,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 11.92,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        },
+        {
+          "period": "2026-09",
+          "numerator": 87230,
+          "denominator": 6100000,
+          "excludedCount": 91500,
+          "rate": 1.43,
+          "availablePartners": 5,
+          "expectedPartners": 5,
+          "complete": true
+        }
+      ],
+      "septemberChangePercentagePoints": -10.49
+    }
+  ]
+}

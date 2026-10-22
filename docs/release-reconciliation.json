@@ -1,0 +1,60 @@
+{
+  "label": "SYNTHETIC RELEASE RECONCILIATION — no real-company performance",
+  "fixture": 4,
+  "counts": {
+    "sources": 21,
+    "accepted": 18,
+    "suggestions": 3,
+    "issues": 5,
+    "opportunities": 5,
+    "observations": 270,
+    "historicalNotes": 54
+  },
+  "metrics": [
+    {
+      "id": "payment-success",
+      "name": "Successful payments",
+      "rate": "99.70%",
+      "change": "+1.50 pp",
+      "numerator": 6081700,
+      "denominator": 6100000,
+      "acceptedSources": 9
+    },
+    {
+      "id": "payment-reversal",
+      "name": "Reversed payment rate",
+      "rate": "0.16%",
+      "change": "-1.35 pp",
+      "numerator": 9760,
+      "denominator": 6100000,
+      "acceptedSources": 9
+    },
+    {
+      "id": "dispute-success",
+      "name": "Successful disputes",
+      "rate": "43.52%",
+      "change": "+1.87 pp",
+      "numerator": 2654720,
+      "denominator": 6100000,
+      "acceptedSources": 4
+    },
+    {
+      "id": "card-timeout",
+      "name": "Timed out payment attempts",
+      "rate": "1.50%",
+      "change": "-7.31 pp",
+      "numerator": 91500,
+      "denominator": 6100000,
+      "acceptedSources": 2
+    },
+    {
+      "id": "inbound-flagged",
+      "name": "Flagged inbound payments (Risk & Compliance)",
+      "rate": "1.43%",
+      "change": "-10.49 pp",
+      "numerator": 87230,
+      "denominator": 6100000,
+      "acceptedSources": 3
+    }
+  ]
+}

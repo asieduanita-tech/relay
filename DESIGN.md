@@ -158,7 +158,7 @@ Controls have gently curved corners; findings, tables and larger panels step thr
 
 ### Buttons
 
-Restrained, compact actions. Primary uses Forest Action with white text; secondary uses white with a muted border; ghost uses transparent fill and muted text. Standard controls have a minimum height of (40px). Background changes transition over (150ms ease). Primary hover uses (#285943), secondary hover (#eef3eb). Disabled buttons reduce opacity to (.52). Keyboard focus has a green outline (2px) offset by (3px).
+Restrained, compact actions. Primary uses Forest Action with white text; secondary uses white with a muted border; ghost uses transparent fill and muted text. Standard desktop controls have a minimum height of (40px). Mobile buttons, compact actions, navigation controls and filter fields have a minimum height of (44px). Background changes transition over (150ms ease). Primary hover uses (#285943), secondary hover (#eef3eb). Disabled buttons reduce opacity to (.52). Keyboard focus has a green outline (2px) offset by (3px).
 
 ### Chips
 
@@ -174,11 +174,15 @@ White fill, a quiet border (#cbd3c9), control radius and minimum height (40px). 
 
 ### Navigation
 
-Forest rail navigation uses Inter (12px) with inline SVG icons. Default links are muted light sage; hover deepens the local fill, and the current destination receives a persistent lighter forest background plus `aria-current`. Mobile navigation opens from the left and includes a dismissible backdrop and close control.
+Forest rail navigation uses Inter (12px) with inline SVG icons. Default links are muted light sage; hover deepens the local fill, and the current destination receives a persistent lighter forest background plus `aria-current`. Mobile navigation opens from the left as a labelled modal drawer with a dismissible backdrop and close control. Focus stays inside the drawer, Escape closes it, and focus returns to the opener. Background content is inert while open; resizing to desktop closes the drawer. Tab groups support Arrow Left/Right and Home/End, with the selected tab in the normal tab order.
 
 ### Evidence and review
 
-Findings preserve exact quotations, source metadata, explicit review state and correction fields. Quote highlights use pale sage; original source text remains reachable. Evidence is supporting content, never a decorative testimonial. New imports remain unanalysed while live AI is hard disabled; review examples explicitly identify precomputed synthetic analysis.
+Findings preserve exact quotations, source metadata, explicit review state and correction fields. Quote highlights use pale sage; original source text remains reachable. Evidence is supporting content, never a decorative testimonial. New imports remain unanalysed while live AI is hard disabled; review examples explicitly identify precomputed synthetic analysis. On issue and opportunity pages, connected metric/source context is collapsed behind a labelled disclosure so original evidence and decision forms remain prominent. Overview and metric-filtered Feedback retain expanded context for discovery. Reporting-period distinctions remain visible when the disclosure is opened. Mobile Feedback source quotations use (13px) working text.
+
+### Motion and recovery
+
+Reduced-motion mode replaces chart transitions and loading animations with static states while retaining loading text and status. Loading workspaces expose a status label; connection errors provide Retry loading, and empty feedback provides a Show all feedback recovery link. Scrollable tables retain a visible keyboard focus outline. Long quotations wrap without widening the page.
 
 ## Do's and Don'ts
 

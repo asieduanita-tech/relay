@@ -1,6 +1,6 @@
 import {createHash,randomUUID} from 'node:crypto';
 import {z} from 'zod';
-import {AREAS,Filters,PARTNERS,Workspace,OWNERS} from './types';
+import {AREAS,PARTNERS,Workspace,OWNERS} from './types';
 export const id=()=>randomUUID();
 export const hash=(partner:string,text:string)=>createHash('sha256').update(partner+'\n'+text.trim().replace(/\s+/g,' ').toLowerCase()).digest('hex');
 const date=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v=>{const d=new Date(v);return !isNaN(d.getTime())&&d.toISOString().slice(0,10)===v},'Use a valid date');

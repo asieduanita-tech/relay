@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
-import {RotateCcw,ArrowRight,CheckCircle2,AlertCircle} from 'lucide-react';
+import {RotateCcw,ArrowRight} from 'lucide-react';
 import {useWorkspace} from './workspace';
 import {PARTNERS} from '@/lib/types';
 import {PageHeader,Badge} from './ui';

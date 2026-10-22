@@ -1,31 +1,38 @@
-# Relay validation — 21 October 2026
+# Relay validation — 22 October 2026
 
-## Scope
+## Current local release candidate
 
-No-spend release: live model calls are hard-disabled in server code and AI_ENABLED=false in production, preview, and development on Vercel. Seed extraction is explicitly precomputed and synthetic. New sources save without automatic analysis. No card or paid upgrade is authorised.
+Stages 1–5 completed local review and QA before publication. This document records the reviewed candidate checks; deployment-specific verification is reported separately in the release handover.
 
-## Observed checks
+Observed checks:
 
-- 11 domain tests passed: distinct source/partner counts, date/area/partner filters, deduplication, exact quotation offsets and rejection of unsupported evidence, grouping corrections, decision history and delivery guard, manual communication state, CSV multiline input and validation limits.
-- TypeScript passed.
-- Production webpack build passed before final release build; the final build is recorded by deployment output.
-- 3 Playwright tests passed against the real Neon PostgreSQL workspace store: complete review/decision/action/import/communication flow and reset isolation; desktop/mobile core routes without page-level overflow; accessibility scans.
-- Axe WCAG 2 A/AA, 2.1 AA and 2.2 AA tags on 6 routes × 3 viewport widths (1440, 1024, 390) found no serious/critical violations. Manual keyboard and physical-device checks are not complete; this is not accessibility certification.
-- Independent Impeccable finish review returned fix, then scored all 3 requested material changes resolved and returned ship: truthful no-spend import wording, inline search layout, and removal of an unnecessary aside eyebrow. Its final verdict covers those scored fixes; pending-source wording was checked in code rather than an imported-state capture.
-- Impeccable detector ran once. Its only warning was Inter being overused. Inter was retained for readable operation text alongside Newsreader page titles.
-- Vercel project relay and free Neon database relay-db in London were created; schema migration succeeded. Server session and cleanup secrets were generated through stdin without source files or logs containing their values.
-- Live AI authentication was attempted once before the no-spend instruction and rejected by Vercel with HTTP 403 for missing payment-card verification. No successful model extraction or AI accuracy measurement is claimed. Further model calls are blocked.
+- **38 unit/domain tests passed**: synthetic coverage, weighted rates, cohort comparisons, invalid/missing data, additive upgrades, exact quotations, accepted-only evidence, partner scope, filtering, deduplication, review/decision/action/communication rules and CSV limits.
+- **17 browser tests passed** in a complete `npm run test:e2e` run after the final workspace-loading fix. Covers the original workflow, both detailed scenarios, metric/filter reconciliation and reloads, isolation/reset, security, loading/error/retry/empty states, keyboard tabs/navigation, synthesized mobile touch, reduced motion and long text.
+- **ESLint passed with zero warnings**, using matching Next rules. CI includes lint; a clean lockfile install dry run passed.
+- **TypeScript and route generation passed**. Production webpack build passed with database/session/cleanup values explicitly blank for the build process.
+- **Numerical reconciliation passed**: all five requested September rates and all partner totals reconcile; artifact in `docs/release-reconciliation.json`.
+- Rendered axe checks across the original core paths and Stage 2/4 surfaces found no serious/critical violations. Stage 4 covers seven affected pages at 390, 1024 and 1440 px. No full accessibility certification is implied.
+- A targeted credential-pattern scan checked 71 eligible source/documentation/config files and found no matches. Ignored secrets and local data were excluded; this is not an exhaustive secret-detection guarantee.
+- Production dependency audit: **0 vulnerabilities**. Full audit: **5 high entries in one development-only braces dependency chain**, no supported upstream patch reported. Details and advisory in `docs/STAGE_5.md`. No forced downgrade was used.
 
-## Release limitations
+## Security evidence
 
-- Production deployment smoke checks are recorded after deployment; a successful local check alone does not prove production configuration.
-- Automatic GitHub-to-Vercel linking was rejected because the Vercel account needs a GitHub Login Connection. CLI deployment remains available; connecting GitHub later is optional account setup.
-- No real user research, business-impact metrics, representative AI evaluation, enterprise authentication, production multi-team security certification, or external message delivery is claimed.
+Endpoint tests verify unsigned/tampered sessions and foreign objects are rejected; origin and content-type checks apply; oversized requests are refused; blocked analysis returns 503 without modifying workspace data; separate browser workspaces remain independent; cleanup requires authentication. Signed cookie flags are HTTP-only/SameSite Strict locally and Secure in production code. PostgreSQL updates use row locks and parameterised queries.
 
-## Production verification
+Live AI is hard-disabled before quota reservation or provider calls. Changing environment configuration cannot enable it. New imports remain unanalysed; examples are explicitly precomputed and synthetic. No model request, new database resource, paid upgrade or card is required.
 
-Production deployed successfully on Vercel: https://relay-olive-six.vercel.app (deployment dpl_DBLPJ8xC7ZvkGF53QbxFPJsuudTV).
+No production database was queried or modified during staged QA. Both fail-closed production guards passed using temporary localhost processes with blank database settings: a presented session requires SESSION_SECRET, and a fresh session requires DATABASE_URL. Pages returned 200 while workspace access returned 503; framing/nosniff headers were verified. The temporary processes were stopped. It must not be mistaken for a working production PostgreSQL persistence test.
 
-The public alias returned HTTP 200 without Vercel sign-in. Both production Playwright checks passed: the full seeded evidence/review/decision/action/communication/import/reset workflow with separate browser-session isolation, and desktop/mobile route checks without document-level overflow. The live /api/analyze endpoint returned HTTP 503 with the explicit no-spend explanation; no model request was made. Production uses PostgreSQL and signed secure cookies. The production build completed successfully.
+## Design review
 
-Application source and documentation are published at https://github.com/asieduanita-tech/relay. Deployment used the CLI because automatic GitHub linking requires a separate Vercel account Login Connection.
+Impeccable preserved the forest rail, Newsreader/Inter hierarchy, flat surfaces and evidence disclosures. Independent Stage 4 review accepted the rendered refinement, then accepted the documentation correction. Mobile controls, keyboard interaction, collapsed detail context and state recovery are documented in DESIGN.md. Broader sidecar approximations were not rewritten.
+
+## Earlier public release
+
+The older demo is at https://relay-olive-six.vercel.app and repository at https://github.com/asieduanita-tech/relay. Earlier release notes recorded a successful Vercel deployment, free Neon provisioning and production workflow/isolation smoke tests. Those historical results do not validate the current unpublished candidate. Automatic GitHub linking was not established in the earlier setup; CLI publishing remains a separate approval step.
+
+## Remaining limits
+
+Physical-device, cross-browser and full screen-reader coverage are incomplete. There is no live AI accuracy evaluation, real user research, measured business impact, enterprise membership/roles or external message delivery. Anonymous 24-hour demo sessions and existing CSP allowances remain deliberate MVP limits. Final production smoke checks must follow an explicitly approved deployment.
+
+See `docs/STAGE_5.md` for exact GitHub/Vercel preparation and remaining dependency caveat.

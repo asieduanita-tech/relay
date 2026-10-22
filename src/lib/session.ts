@@ -1,7 +1,7 @@
 import 'server-only';
 import {cookies} from 'next/headers';
 import {randomBytes,createHmac,timingSafeEqual} from 'node:crypto';
-import {createWorkspace,readWorkspace,AppError,durable} from './store';
+import {createWorkspace,readWorkspace,AppError} from './store';
 const localGlobal=globalThis as typeof globalThis & {relayLocalSecret?:string};
 const localSecret=localGlobal.relayLocalSecret??=randomBytes(32).toString('hex');
 function secret(){const s=process.env.SESSION_SECRET;if(process.env.NODE_ENV==='production'&&(!s||s.length<32))throw new AppError('Configure a SESSION_SECRET with at least 32 characters.',503);return s||localSecret}

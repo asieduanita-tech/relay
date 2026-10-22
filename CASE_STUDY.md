@@ -26,7 +26,7 @@ The overview prioritises partner breadth and distinct source counts. An issue op
 
 Impeccable guided a restrained operations interface. A forest navigation rail anchors the workspace; a warm light surface supports dense reading. Inter handles tables and controls, and Newsreader distinguishes page titles. Semantic labels support colour, charts have table alternatives, and source evidence stays close to the decision it supports.
 
-The dashboard leads with four distinct operational measures and a product-area breakdown, then gives most of its space to the issue table. Partner avatars support recognition but do not replace counts or account names. Mobile keeps the same information hierarchy and contains wide tables in a dedicated scroll region.
+The dashboard leads with five distinct synthetic performance rates, six-month trends and raw-count calculation details, followed by reviewed feedback and the issue table. Partner avatars support recognition but do not replace counts or account names. Mobile keeps the same information hierarchy and contains wide tables in a dedicated scroll region.
 
 Browser testing exposed a mobile overflow caused by a visually hidden table label outside its scroll container. The containing block was corrected. Automated accessibility checks also exposed low-contrast supporting labels and an incorrect interactive chart role; those were corrected before release review.
 
@@ -36,11 +36,11 @@ Next.js App Router, React, TypeScript, and Tailwind provide the application. Ser
 
 The document storage model is a pragmatic demo boundary. A production multi-team product would need normalised entities, indexed analytics, authenticated membership, stronger audit identity, and database row policies. Local file persistence is available only in development and is explicitly disabled in production.
 
-Real extraction uses the OpenAI Responses API, directly or through Vercel AI Gateway. Relay validates structured results, verifies exact source quotations and allowed issue IDs, and preserves provenance. Failed calls stay failed; precomputed synthetic fixtures are never passed off as live results. Session/IP/global quotas and bounded outputs limit public model usage.
+The inactive extraction adapter targets the OpenAI Responses API, directly or through Vercel AI Gateway. Live extraction is hard-disabled in this no-spend release. Relay validates structured results, verifies exact source quotations and allowed issue IDs, and preserves provenance. Failed calls stay failed; precomputed synthetic fixtures are never passed off as live results. Session/IP/global quotas and bounded outputs limit public model usage.
 
 ## Observed verification
 
-- Eleven domain checks pass for distinct counts, filters, deduplication, source evidence, grouping corrections, decision rules, communication state, and CSV validation.
+- Thirty-eight unit/domain checks pass for distinct counts, filters, deduplication, source evidence, grouping corrections, decision rules, communication state, and CSV validation.
 - Browser tests pass for the seeded evidence-to-decision workflow, action completion, import, origin rejection, independent visitor state, and reset isolation using development storage.
 - Desktop and mobile route checks pass without document-level horizontal overflow.
 - The production build and TypeScript checks pass.
@@ -58,3 +58,11 @@ Next, validate the workflow with Product Operations practitioners; establish int
 ## No-spend scope update — 21 October 2026
 
 The user requires no payment card and no spending. Live AI is disabled in code and Vercel configuration. New imports are saved without automatic extraction; seeded findings remain explicitly labelled precomputed synthetic analysis. The real-provider adapter is retained for reference only and cannot be enabled through environment settings alone. No paid upgrades, credit purchases, or billable model calls are authorised. The approved demo uses free hosting/database tiers and the synthetic review-to-decision workflow.
+
+## Staged revision and product judgment
+
+The current local revision connects performance signals to source evidence and accountable decisions without combining unlike rates into a health score. Successful payments and reversals use different cohorts; they are not complements. Successful disputes count final outcomes, not evidence submissions. A risk flag is a reason to investigate, not confirmed misuse. Improvements in rates do not invalidate remaining partner concerns.
+
+The five current product problems cover closed beneficiary accounts, account-detail mismatches, broad dispute evidence guidelines, delayed card OTPs and suspected friends-and-family receipts to business multicurrency accounts. Opportunity proposals address those specific mechanisms, with human priority and rationale recorded separately from partner breadth. Source dates and reporting months stay visible so September metrics are not represented as causally explained by October feedback.
+
+Impeccable review preserved the forest rail, editorial titles and flat evidence surfaces. Detail-page metric context is progressively disclosed to foreground source investigation and decision recording; mobile controls, keyboard navigation, retry/empty states and reduced-motion behaviour were refined. Staged work passed local review before publication; current results and limitations are recorded in docs/STAGE_5.md. Deployment-specific verification is reported separately.

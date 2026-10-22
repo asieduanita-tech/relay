@@ -10,7 +10,7 @@ An evidence-to-decision workspace for Product Operations teams at B2B fintechs. 
 
 ## Run locally
 
-Requires Node.js 22 or 24 and npm.
+Use Node.js 24 and npm (Node 22.13+ is also supported by the lint tooling).
 
 ```sh
 npm ci
@@ -18,7 +18,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://127.0.0.1:3000`. Development uses ignored `.data/` files if `DATABASE_URL` is absent. This fallback is deliberately disabled in production. The complete seeded review/decision workflow works without an AI key; newly submitted feedback requires a real configured provider and is never analysed with a canned fallback.
+Open `http://127.0.0.1:3000`. Development uses ignored `.data/` files if `DATABASE_URL` is absent. This fallback is deliberately disabled in production. The complete seeded review/decision workflow works without an AI key. New feedback is saved without analysis in this no-spend release; there is no canned fallback.
 
 To use PostgreSQL, set `DATABASE_URL` and run `npm run db:migrate`. Use a pooled PostgreSQL connection with TLS enabled; Vercel's Neon integration is supported. Migrations create `relay_workspaces` and `relay_usage` and do not drop existing data.
 
@@ -54,6 +54,7 @@ A daily authenticated Vercel cron removes expired workspace content and usage re
 ## Verification
 
 ```sh
+npm run lint
 npm test
 npm run typecheck
 npm run build
@@ -67,9 +68,9 @@ Browser checks use installed Google Chrome through Playwright (`channel: chrome`
 
 ## Deploy to Vercel
 
-1. Import `asieduanita-tech/relay` into a new Vercel project named `relay`, or link the existing configured project with the CLI.
-2. Connect the free Neon PostgreSQL integration and run `npm run db:migrate` against its database.
-3. Configure `DATABASE_URL`, `SESSION_SECRET`, `CRON_SECRET`, the chosen AI authentication, `AI_PROVIDER`, `AI_ENABLED`, and `AI_DAILY_GLOBAL_LIMIT` in Vercel. Keep secrets out of repository files and command arguments.
+1. After explicit publishing approval, use the existing Vercel project `relay`; do not create another project. See [Stage 5 release instructions](docs/STAGE_5.md).
+2. Preserve the existing free PostgreSQL connection and secrets. These staged changes do not change the SQL schema; no new database or migration is needed.
+3. Verify `DATABASE_URL`, `SESSION_SECRET` and `CRON_SECRET` remain configured. Keep `AI_ENABLED=false`. No AI credential, card or paid upgrade is needed. Keep secrets out of repository files and command arguments.
 4. Use `npm run build` as the build command, then deploy. `vercel.json` defines the daily cleanup schedule.
 5. Verify a fresh visitor can import, confirm live analysis is disabled, review seeded evidence, record a decision, and complete an action. Check a second browser session remains independent.
 
@@ -88,3 +89,13 @@ Official implementation references: [Next.js App Router](https://nextjs.org/docs
 ## No-spend scope update — 21 October 2026
 
 The user requires no payment card and no spending. Live AI is disabled in code and Vercel configuration. New imports are saved without automatic extraction; seeded findings remain explicitly labelled precomputed synthetic analysis. The real-provider adapter is retained for reference only and cannot be enabled through environment settings alone. No paid upgrades, credit purchases, or billable model calls are authorised. The approved demo uses free hosting/database tiers and the synthetic review-to-decision workflow.
+
+## Reviewed revision — 22 October 2026
+
+Stages 1–5 passed local review and QA before publication. Deployment-specific verification is reported separately in the release handover. The latest synthetic Overview rates are 99.70% successful payments, 0.16% reversals, 43.52% successful disputes, 1.50% timed-out card attempts and 1.43% flagged inbound receipts. Month-over-month changes use percentage points.
+
+Nine metric definitions, 270 observations and 54 historical notes span April–September 2026. Explicit contextual associations connect the five current product problems to exact accepted source quotations and human-owned opportunities. October source feedback is distinct from the metric reporting period; no causal proof is implied. KYC and Risk review metrics are retained under their product filters.
+
+See [metric dictionary](docs/METRICS.md), [release reconciliation](docs/release-reconciliation.json), and [Stage 5](docs/STAGE_5.md) for current verification and release boundaries. Older modified visitor workspaces preserve operator work; use a new session to inspect revised sample content.
+
+Lint uses ESLint 10 and Next's matching config. TypeScript 7 remains the `tsc` executable; the `typescript` package alias supplies the TypeScript 6 API required by lint tools, following Microsoft's side-by-side guidance. `npm run lint` permits no warnings; CI runs lint, unit tests, typecheck and build. Browser tests require a separately running local server and installed Chrome.
